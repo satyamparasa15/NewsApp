@@ -1,7 +1,7 @@
 package com.example.newsapp.di.builder;
 
-import com.example.newsapp.ui.MainActivity;
-import com.example.newsapp.ui.MainActivityModule;
+import com.example.newsapp.ui.home.MainActivity;
+import com.example.newsapp.ui.home.MainActivityModule;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
