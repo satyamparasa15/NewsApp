@@ -20,7 +20,4 @@ public class MainActivityModule {
         return new MainActivityViewModel(apiService);
     }
 
-
-
-
 }

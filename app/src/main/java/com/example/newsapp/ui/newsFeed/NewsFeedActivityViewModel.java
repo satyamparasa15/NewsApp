@@ -1,8 +1,6 @@
-package com.example.newsapp.ui.home;
+package com.example.newsapp.ui.newsFeed;
 
 import com.example.newsapp.BuildConfig;
-import com.example.newsapp.app.Constants;
-import com.example.newsapp.base.BaseNavigator;
 import com.example.newsapp.base.BaseViewModel;
 import com.example.newsapp.network.ApiService;
 import com.example.newsapp.utils.RetrofitUtils;
@@ -11,9 +9,9 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import timber.log.Timber;
 
-public class MainActivityViewModel extends BaseViewModel<BaseNavigator> {
+public class NewsFeedActivityViewModel extends BaseViewModel<NewsFeedNavigator> {
 
-	public MainActivityViewModel(ApiService apiService) {
+	public NewsFeedActivityViewModel(ApiService apiService) {
 		super(apiService);
 	}
 
@@ -25,6 +23,7 @@ public class MainActivityViewModel extends BaseViewModel<BaseNavigator> {
 						.doOnSubscribe(disposable -> setIsLoading(true))
 						.doFinally(() -> setIsLoading(false))
 						.subscribe(newsResponse -> {
+							getNavigator().onResponseSuccess(newsResponse.articles);
 						}, throwable -> {
 							Timber.e(throwable, "error occurred.");
 							if (RetrofitUtils.isApiError(throwable)) {

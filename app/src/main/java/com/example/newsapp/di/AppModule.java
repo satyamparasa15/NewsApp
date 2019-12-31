@@ -27,8 +27,6 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.example.newsapp.app.Constants.NEW_API_KEY;
-
 @Module
 public class AppModule {
 
@@ -113,7 +111,7 @@ public class AppModule {
             Request original = chain.request();
             Request.Builder requestBuilder = original.newBuilder()
                     .addHeader("Accept", "application/json");
-            requestBuilder.addHeader("Authorization", "Bearer " + NEW_API_KEY);
+           // requestBuilder.addHeader("Authorization", "Bearer " + NEW_API_KEY);
 //			//	String userToken = appPref.getAuthToken();
 //				if (!TextUtils.isEmpty(userToken)) {
 //				requestBuilder.addHeader("Authorization", "Bearer " + userToken);
