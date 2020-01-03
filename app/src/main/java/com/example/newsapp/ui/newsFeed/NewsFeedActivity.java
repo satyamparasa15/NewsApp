@@ -13,6 +13,7 @@ import com.example.newsapp.databinding.ActivityNewsFeedBinding;
 import com.example.newsapp.network.ErrorResponse;
 import com.example.newsapp.network.model.Article;
 import com.example.newsapp.ui.news.AboutArticleActivity;
+import com.google.android.gms.ads.MobileAds;
 
 import java.util.List;
 
@@ -48,6 +49,7 @@ public class NewsFeedActivity extends BaseActivity<ActivityNewsFeedBinding, News
 	}
 
 	private void setUp() {
+		MobileAds.initialize(this, "ca-app-pub-7491030810733834/4105027046");
 		mActivityBinding.feedRv.setLayoutManager(mLayoutManager);
 		mActivityBinding.feedRv.setAdapter(mAdapter);
 	}

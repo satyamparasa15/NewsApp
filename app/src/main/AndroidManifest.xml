@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.news.AboutArticleActivity"></activity>
+        <activity android:name=".ui.home.Ads"></activity>
+        <activity android:name=".ui.news.AboutArticleActivity" />
         <activity android:name=".ui.newsFeed.NewsFeedActivity" />
         <activity android:name=".ui.splash.SplashActivity">
             <intent-filter>
@@ -26,6 +27,13 @@
         <activity
             android:name=".ui.home.MainActivity"
             android:label="select location" />
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-7491030810733834~8684960958" />
+        <meta-data
+            android:name="com.google.android.gms.ads.AD_MANAGER_APP"
+            android:value="true" />
     </application>
 
 </manifest>

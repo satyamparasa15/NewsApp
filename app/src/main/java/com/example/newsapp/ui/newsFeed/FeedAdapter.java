@@ -9,9 +9,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.newsapp.R;
 import com.example.newsapp.base.BaseViewHolder;
 import com.example.newsapp.databinding.FeedItemBinding;
 import com.example.newsapp.network.model.Article;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -77,6 +80,7 @@ public class FeedAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 					}
 				}
 			});
+
 		}
 
 		@Override
@@ -104,6 +108,8 @@ public class FeedAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 				}
 
 			}
+			AdRequest adRequest = new AdRequest.Builder().build();
+			mFeedItemBinding.adView2.loadAd(adRequest);
 		}
 	}
 }

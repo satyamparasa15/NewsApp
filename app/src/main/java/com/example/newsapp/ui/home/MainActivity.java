@@ -3,6 +3,7 @@ package com.example.newsapp.ui.home;
 import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
@@ -61,6 +62,15 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainActivity
 //			intentIndia.putExtra("location", "current");
 //			startActivity(intentIndia);
 		});
+		mViewBinding.click.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+
+				Intent intent = new Intent(MainActivity.this, Ads.class);
+				startActivity(intent);
+			}
+		});
+
 	}
 
 	public void requestLocationPermission() {
@@ -69,7 +79,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainActivity
 				.withListener(new PermissionListener() {
 					@Override
 					public void onPermissionGranted(PermissionGrantedResponse response) {
-					//	getUserCurrentLocation();
+						//	getUserCurrentLocation();
 						//getDeviceLocation();
 					}
 

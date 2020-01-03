@@ -101,4 +101,11 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview-selection:1.1.0-beta01"
     //dexter
     implementation 'com.karumi:dexter:6.0.1'
+
+    //firebase
+    implementation 'com.google.firebase:firebase-analytics:17.2.1'
+    //firebase ads
+    implementation 'com.google.firebase:firebase-ads:18.3.0'
+    implementation 'com.google.android.gms:play-services-ads:9.8.0'
 }
+apply plugin: 'com.google.gms.google-services'
