@@ -12,8 +12,15 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
+
+        <com.google.android.gms.ads.NativeExpressAdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            ads:adSize="BANNER"
+            ads:adUnitId="ca-app-pub-3940256099942544/6300978111" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/feed_card"
@@ -23,6 +30,7 @@
             android:layout_marginTop="@dimen/dimen_8"
             android:layout_marginRight="@dimen/dimen_8"
             android:layout_marginBottom="@dimen/dimen_8"
+            android:visibility="visible"
             app:cardBackgroundColor="@android:color/white"
             app:cardCornerRadius="@dimen/dimen_4"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -70,9 +78,9 @@
                     android:id="@+id/auther"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:layout_marginStart="@dimen/dimen_10"
                     android:layout_marginTop="@dimen/dimen_10"
-                    android:textSize="10sp"
+                    android:textSize="@dimen/dimen_10sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/feed_des">
@@ -86,18 +94,11 @@
                     android:layout_marginTop="@dimen/dimen_10"
                     android:layout_marginEnd="@dimen/dimen_10"
                     android:text="30/19/2029"
-                    android:textSize="10sp"
+                    android:textSize="@dimen/dimen_10sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/feed_des" />
 
-                <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/adView2"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    ads:adSize="BANNER"
-                    ads:adUnitId="ca-app-pub-3940256099942544/6300978111"
-                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>

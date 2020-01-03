@@ -3,11 +3,17 @@ package com.example.newsapp.app;
 import android.app.Activity;
 import android.app.Service;
 import android.content.Context;
+import android.content.Intent;
 
 import androidx.multidex.MultiDexApplication;
 
 import com.example.newsapp.BuildConfig;
 import com.example.newsapp.di.component.DaggerAppComponent;
+import com.example.newsapp.ui.news.AboutArticleActivity;
+import com.onesignal.OSNotificationOpenResult;
+import com.onesignal.OneSignal;
+
+import org.json.JSONObject;
 
 import javax.inject.Inject;
 
@@ -41,7 +47,13 @@ public class MyApplication extends MultiDexApplication implements HasActivityInj
                 .inject(this);
         mInstance = this;
         plantTimber();
-        //initRealm();
+        // OneSignal Initialization
+        OneSignal.startInit(this)
+                .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
+                .setNotificationOpenedHandler(new MyNotificationOpenedHandler(this))
+                .unsubscribeWhenNotificationsAreDisabled(true)
+                .init();
+
 
     }
 
@@ -55,17 +67,6 @@ public class MyApplication extends MultiDexApplication implements HasActivityInj
         return mInstance;
     }
 
-//    private void initRealm() {
-//        Realm.init(this);
-//        RealmConfiguration defaultRealmConfiguration = new RealmConfiguration
-//                .Builder()
-//                .name(getInstance().getString(R.string.realm_database_name))
-//                .schemaVersion(3)
-//                .deleteRealmIfMigrationNeeded()
-//                .build();
-//        Realm.setDefaultConfiguration(defaultRealmConfiguration);
-//    }
-
     @Override
     public DispatchingAndroidInjector<Activity> activityInjector() {
         return activityDispatchingAndroidInjector;
@@ -75,4 +76,22 @@ public class MyApplication extends MultiDexApplication implements HasActivityInj
     public AndroidInjector<Service> serviceInjector() {
         return dispatchingServiceInjector;
     }
+
+    private class MyNotificationOpenedHandler implements OneSignal.NotificationOpenedHandler {
+        public MyNotificationOpenedHandler(MyApplication myApplication) {
+        }
+
+        @Override
+        public void notificationOpened(OSNotificationOpenResult result) {
+            JSONObject data = result.notification.payload.additionalData;
+            if (data != null) {
+                String newsUrl = data.optString(Constants.URL);
+                Intent intent = new Intent(getBaseContext(), AboutArticleActivity.class)
+                        .setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra(Constants.URL, newsUrl);
+                startActivity(intent);
+            }
+        }
+    }
+
 }

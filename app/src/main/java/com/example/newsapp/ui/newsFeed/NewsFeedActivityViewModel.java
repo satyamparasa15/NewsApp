@@ -15,9 +15,9 @@ public class NewsFeedActivityViewModel extends BaseViewModel<NewsFeedNavigator> 
 		super(apiService);
 	}
 
-	public void getNewsByCountry() {
+	public void getNewsByCountry(String location) {
 		getCompositeDisposable().add(
-				getApiService().getNewsByCountry("us", BuildConfig.NEWS_API_KEY)
+				getApiService().getNewsByCountry(location, BuildConfig.NEWS_API_KEY)
 						.subscribeOn(Schedulers.io())
 						.observeOn(AndroidSchedulers.mainThread())
 						.doOnSubscribe(disposable -> setIsLoading(true))

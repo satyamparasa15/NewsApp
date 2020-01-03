@@ -4,18 +4,25 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission. ACCESS_COARSE_LOCATION" />
 
     <application
         android:name=".app.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.home.Ads"></activity>
-        <activity android:name=".ui.news.AboutArticleActivity" />
-        <activity android:name=".ui.newsFeed.NewsFeedActivity" />
+        <activity
+            android:name=".ui.news.AboutArticleActivity"
+            android:label="Complete Article" android:parentActivityName=".ui.newsFeed.NewsFeedActivity" />
+        <activity
+            android:name=".ui.newsFeed.NewsFeedActivity"
+            android:label="News Feed"
+            android:parentActivityName=".ui.home.MainActivity"/>
         <activity android:name=".ui.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,7 +33,7 @@
         <activity android:name=".base.BaseActivity" />
         <activity
             android:name=".ui.home.MainActivity"
-            android:label="select location" />
+            android:label="Locations" />
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
@@ -34,6 +41,9 @@
         <meta-data
             android:name="com.google.android.gms.ads.AD_MANAGER_APP"
             android:value="true" />
+        <meta-data
+            android:name="com.onesignal.NotificationOpened.DEFAULT"
+            android:value="DISABLE" />
     </application>
 
 </manifest>

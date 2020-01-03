@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'
 android {
     dataBinding {
         enabled = true
@@ -13,6 +13,11 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders = [
+                onesignal_app_id               : '5d5470c4-d092-477f-974e-db33f0a276b5',
+                // Project number pulled from dashboard, local value is ignored.
+                onesignal_google_project_number: 'REMOTE'
+        ]
     }
     buildTypes {
         release {
@@ -107,5 +112,13 @@ dependencies {
     //firebase ads
     implementation 'com.google.firebase:firebase-ads:18.3.0'
     implementation 'com.google.android.gms:play-services-ads:9.8.0'
+
+    //one signal
+    implementation 'com.onesignal:OneSignal:[3.11.2, 3.99.99]'
+
+    //firebase config
+    implementation 'com.google.firebase:firebase-config:19.1.0'
+
+
 }
 apply plugin: 'com.google.gms.google-services'

@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">NewsApp</string>
+    <string name="app_name">Daily Feed</string>
     <string name="no_internet">No internet connection available!</string>
     <string name="daily_feed">Daily Feed</string>
     <string name="india">India</string>
     <string name="current_location">Current Location</string>
+    <string name="please_select_the_one_location">Please select the One Location</string>
 
 </resources>
