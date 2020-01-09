@@ -19,15 +19,6 @@ public class Ads extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_ads);
-		//MobileAds.initialize(this, "ca-app-pub-7491030810733834~8684960958");
-//		mAdView.setAdSize(AdSize.BANNER);
-//		mAdView.setAdUnitId("ca-app-pub-3940256099942544/2247696110");
-
-//		MobileAds.initialize(this, new OnInitializationCompleteListener() {
-//			@Override
-//			public void onInitializationComplete(InitializationStatus initializationStatus) {
-//			}
-//		});
 		mAdView = findViewById(R.id.adView1);
 		AdRequest adRequest = new AdRequest.Builder().build();
 		mAdView.loadAd(adRequest);

@@ -119,6 +119,9 @@ dependencies {
     //firebase config
     implementation 'com.google.firebase:firebase-config:19.1.0'
 
+    //for current location
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+
 
 }
 apply plugin: 'com.google.gms.google-services'

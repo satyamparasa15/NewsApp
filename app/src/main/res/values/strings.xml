@@ -4,6 +4,6 @@
     <string name="daily_feed">Daily Feed</string>
     <string name="india">India</string>
     <string name="current_location">Current Location</string>
-    <string name="please_select_the_one_location">Please select the One Location</string>
-
+    <string name="select_one_location">Select One location</string>
+    <string name="permissions_mes">Need to  enable location permissions</string>
 </resources>
